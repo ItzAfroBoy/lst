@@ -9,8 +9,12 @@ You will need:
 * A linux machine
 * gcc
 * make
+* [txt](https://github.com/ItzAfroBoy/txt)
 
-This is because the code utilises two header files that are not availabe on Windows:
+`txt` is needed as it is hard-coded into the file manager to use it to edit files.  
+As lst is worked on, it will be able to use your personal choice of editor as a fallback.  
+
+A linux machine is needed as lst uses two header files that are not available on Windows:
 
 * sys/ioctl.h
 * termios.h
