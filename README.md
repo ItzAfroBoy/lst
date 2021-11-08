@@ -2,6 +2,11 @@
 
 A shitty file manager
 
+[![GitHub](https://img.shields.io/github/license/ItzAfroBoy/lst)](https://github.com/ItzAfroBoy/lst/blob/main/LICENSE)
+[![GitHub file size in bytes](https://img.shields.io/github/size/ItzAfroBoy/lst/lst.c)](https://github.com/ItzAfroBoy/lst/blob/main/lst.c)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/ItzAfroBoy/lst)](https://github.com/ItzAfroBoy/lst/releases/tag/1.0.0)
+[![CodeFactor](https://www.codefactor.io/repository/github/itzafroboy/lst/badge/main)](https://www.codefactor.io/repository/github/itzafroboy/lst/overview/main)
+
 ## Building
 
 You will need:
@@ -42,4 +47,4 @@ To build:
 
 ## License
 
-[GNU GPLv3](https://github.com/ItzAfroBoy/txt/blob/main/LICENSE)
+[GNU GPLv3](https://github.com/ItzAfroBoy/lst/blob/main/LICENSE)
