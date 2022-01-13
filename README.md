@@ -3,7 +3,7 @@
 A shitty file manager
 
 [![GitHub](https://img.shields.io/github/license/ItzAfroBoy/lst)](https://github.com/ItzAfroBoy/lst/blob/main/LICENSE)
-[![GitHub file size in bytes](https://img.shields.io/github/size/ItzAfroBoy/lst/lst.c?label=lst.c)](https://github.com/ItzAfroBoy/lst/blob/main/lst.c)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ItzAfroBoy/lst?color=red&label=lst)](https://github.com/ItzAfroBoy/lst)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ItzAfroBoy/lst)](https://github.com/ItzAfroBoy/lst/releases/tag/1.0.0)
 [![CodeFactor](https://www.codefactor.io/repository/github/itzafroboy/lst/badge/main)](https://www.codefactor.io/repository/github/itzafroboy/lst/overview/main)
 
@@ -47,19 +47,20 @@ OPTIONS
         -c      :: show colors
         -n      :: show numbers
         -i      :: show file info
+        -p      :: show path at exit
 
 OPERATIONS
+         q      :: exit lst
          r      :: rename a file
          d      :: delete a file
          c      :: create a new file
         ^c      :: create a new folder
-        ^q      :: exit lst
 $ lst -tni ~/.config
 ```
 
 > Exiting `lst`:
 
-1. `Ctrl-Q`
+1. `Q`
 2. `Esc`
 
 > Config file:
@@ -74,7 +75,7 @@ reads and parses the file. The format of file will be specified [`here`](https:/
     * It does depend on my shitty text editor: [`txt`](https://github.com/ItzAfroBoy/txt)
 3. Inline file size (`-i`)
 4. Line numbers (`-n`)
-5. Tiles on empty lines (`-t`)
+5. Tildes on empty lines (`-t`)
 6. Status & Message Bar
     * File size
     * Current line
@@ -120,7 +121,8 @@ colors `lst` uses for the status bar, highlighted item, etc.
 
 > Changing directory on exit [Work In Progress]
 
-I need to find an efficient way to do this so this will be coming in the near future.
+I need to find an efficient way to do this so this will be coming in the near future.  
+The `-p` flag will print final directory on exit. So you'll probs need a wrapper function.
 
 ## Updates
 
