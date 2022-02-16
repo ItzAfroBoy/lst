@@ -60,7 +60,7 @@ void showHelp()
 	printf("\t-t\t:: show tildes\r\n");
 	printf("\t-n\t:: show numbers\r\n");
 	printf("\t-i\t:: show file info\r\n");
-	printf("\t-p\t:: show path at exit\r\n\r\n");
+	printf("\t-p\t:: show final path at exit\r\n\r\n");
 	printf("OPERATIONS\r\n");
 	printf("\t q\t:: exit lst\r\n");
 	printf("\t r\t:: rename a file\r\n");
@@ -233,6 +233,8 @@ int readKey()
 	{
 		if (_r == -1 && errno != EAGAIN)
 			die(itoa(__LINE__, NULL));
+		else if (_r == 0)
+			return 0;
 	}
 
 	if (c == '\e')
@@ -339,6 +341,16 @@ void processKey()
 			createEntry(ans, T_FILE);
 	}
 	break;
+
+	default:
+	{
+		int cur = fmc.cy;
+		changeDir(REFRESH);
+		if (cur < fmc.numrows)
+			fmc.cy = cur;
+		else
+			fmc.cy = fmc.numrows - 1;
+	}
 	}
 }
 
@@ -481,7 +493,7 @@ void drawStatusBar(struct wbuf *wb)
 	char status[100], rstatus[100];
 	char *dir = truncateDir(fmc.dirname);
 	int len, rlen;
-	
+
 	len = snprintf(status, sizeof(status), "%s - %d dirs", dir, fmc.numrows);
 	if (fmc.numrows != 0)
 		rlen = snprintf(rstatus, sizeof(rstatus), "%d %s | %d/%d", getFileSize(fmc.row[fmc.cy].chars), "Bytes", fmc.cy + 1, fmc.numrows);
@@ -885,9 +897,6 @@ void init()
 	fmc.row = NULL;
 	fmc.dirname = NULL;
 	fmc.message[0] = '\0';
-	fmc.exts.numbers = 0;
-	fmc.exts.tildes = 0;
-	fmc.exts.info = 0;
 
 	if (getScreenSize(&fmc.rows, &fmc.cols) == -1)
 		die(itoa(__LINE__, NULL));
@@ -929,17 +938,22 @@ int main(int argc, char **argv)
 	init();
 
 	char *dir = get_current_dir_name();
-	
-	if (!argv[optind]) {
+
+	if (!argv[optind])
+	{
 		openDir(dir);
-	} else if (strncmp(dir, argv[optind], 1) == 0) {
+	}
+	else if (strncmp(dir, argv[optind], 1) == 0)
+	{
 		openDir(argv[optind]);
-	} else {
+	}
+	else
+	{
 		char buf[strlen(dir) + strlen(argv[optind])];
 		sprintf(buf, "%s/%s", dir, argv[optind]);
 		openDir(buf);
 	}
-	
+
 	free(dir);
 
 	setMessage("Arrows | [R]ename | [*Ctrl][C]reate | [D]elete");

@@ -3,7 +3,7 @@
 
 #include <time.h>
 
-#define LST_VERSION "1.1.0"
+#define LST_VERSION "1.1.1"
 #define WBUF_INIT {NULL, 0}
 #define CTRL_KEY(k) ((k)&0x1f)
 #define TOK_BUFSIZE 64
