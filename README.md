@@ -1,11 +1,18 @@
-# lst
-
-A shitty file manager
-
-[![GitHub](https://img.shields.io/github/license/ItzAfroBoy/lst)](https://github.com/ItzAfroBoy/lst/blob/main/LICENSE)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ItzAfroBoy/lst?color=red&label=lst)](https://github.com/ItzAfroBoy/lst)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/ItzAfroBoy/lst)](https://github.com/ItzAfroBoy/lst/releases/tag/1.0.0)
-[![CodeFactor](https://www.codefactor.io/repository/github/itzafroboy/lst/badge/main)](https://www.codefactor.io/repository/github/itzafroboy/lst/overview/main)
+<div align="center">
+<pre>
+ __       ____    ______   
+/\ \     /\  _`\ /\__  _\  
+\ \ \    \ \,\L\_\/_/\ \/  
+ \ \ \  __\/_\__ \  \ \ \  
+  \ \ \L\ \ /\ \L\ \ \ \ \ 
+   \ \____/ \ `\____\ \ \_\
+    \/___/   \/_____/  \/_/
+<br>
+A shitty file manager written in C99
+<br>
+<img alt="GitHub License" src="https://img.shields.io/github/license/ItzAfroBoy/lst"> <img alt="GitHub tag (with filter)" src="https://img.shields.io/github/v/tag/ItzAfroBoy/lst?label=version"> <a href="https://www.codefactor.io/repository/github/itzafroboy/lst"><img src="https://www.codefactor.io/repository/github/itzafroboy/lst/badge" alt="CodeFactor" /></a> <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/ItzAfroBoy/lst">
+</pre>
+</div>
 
 ## Building
 
