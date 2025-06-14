@@ -272,3 +272,17 @@ int ini_sget(
   }
   return 1;
 }
+
+int ini_getc(ini_t *ini, const char *section, const char *key, void(*fn)(const char*, void *dst), void *dst)
+{
+  const char *val = ini_get(ini, section, key);
+  if (!val)
+  {
+    return 0;
+  }
+  if (fn)
+    (fn)(val, dst);
+  else
+    *((const char **)dst) = val;
+  return 1;
+}

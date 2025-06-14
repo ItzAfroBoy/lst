@@ -2,24 +2,24 @@ CC=gcc
 SRC=src
 INC=include
 OBJ=lst.o ini.o
-BIN=/usr/local/bin
 DEPS=$(wildcard $(INC)/*.h)
 NAME=lst
-CFLAGS=-Wall -std=c99 -I$(INC) -g
-
-.PHONY: install purge clean
+CFLAGS=-Wall -std=c99 -I$(INC)
+.PHONY: pkg clean
 
 %.o: $(SRC)/%.c $(DEPS)
-	@$(CC) -c $< $(CFLAGS)
+ifdef debug
+	$(CC) -c $< $(CFLAGS) -g
+else
+	$(CC) -c $< $(CFLAGS) -O2
+endif
 
 $(NAME): $(OBJ)
-	@$(CC) -o $@ $^ $(CFLAGS)
-
-install:
-	@sudo cp $(NAME) $(BIN)
+ifdef debug
+	$(CC) -o $@ $^ $(CFLAGS) -g
+else
+	$(CC) -o $@ $^ $(CFLAGS) -O2
+endif
 
 clean:
 	@rm *.o $(NAME)
-
-purge: clean
-	@sudo rm $(BIN)/$(NAME)
